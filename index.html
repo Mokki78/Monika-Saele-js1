@@ -17,14 +17,22 @@
     <header>
       <nav class="main-nav">
         <ul class="nav-list">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="joke.html">Joke</a></li>
+          <li><a href="index.html"></a></li>
         </ul>
       </nav>
       <div class="title-box">
         <div class="title">
           <h1>Get your new jokes</h1>
         </div>
+      </div>
+      <div class="button-container">
+        <button id="button-all" onclick="displayJokes('all')">All jokes</button>
+        <button id="button-programming" onclick="displayJokes('programming')">
+          Programming jokes
+        </button>
+        <button id="button-general" onclick="displayJokes('general')">
+          General jokes
+        </button>
       </div>
     </header>
     <main>
@@ -34,7 +42,6 @@
       </div>
     </main>
     <footer></footer>
-    <script src="js/components/errorMessage.js"></script>
     <script src="js/home.js"></script>
   </body>
 </html>

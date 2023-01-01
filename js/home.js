@@ -1,53 +1,38 @@
-/* const jokesContainer = document.querySelector(".jokes-container");
-
-const jokeUrl = "https://api.noroff.dev/api/v1/jokes";
-
-async function fetchJokes() {
-  try {
-    const response = await fetch(jokeUrl);
-    const jokes = await response.json();
-
-    console.log(jokes);
-  } catch {}
-
-  for (let i = 0; i < jokes.length; i++) {
-    console.log(jokes[i]);
-    jokesContainer.innerHTML = +`<div class="card-setup">${joke[i].setup}</div>
-                                  <div class="card-type">${joke[i].type}</div>`;
-  }
-}
-
-fetchJokes(); */
-
 const jokesContainer = document.querySelector(".jokes-container");
-
 const jokeUrl = "https://api.noroff.dev/api/v1/jokes";
 
-async function callApi() {
+let jokes = [];
+let type = "all";
+
+async function getAllJokes() {
   try {
     const response = await fetch(jokeUrl);
-    const jokes = await response.json();
+    jokes = await response.json();
 
     console.log(jokes);
 
-    jokesContainer.innerHTML = "";
-
-    for (let i = 0; i < jokes.length; i++) {
-      jokesContainer.innerHTML += `<div class="card"><div class="card-type">${jokes[i].type}</div>
-                                 <div class="card-setup">${jokes[i].setup}</div>
-                                 <a href="joke.html?id=${jokes[i].id}" class="card-punchline"><h4>Get punchline</h4></div></div>`;
-    }
+    displayJokes(type);
   } catch (error) {
-    jokesContainer.innerHTML = displayError("Shit happened, that is no joke");
+    alert("Shit happened, that is no joke");
   }
 }
 
-callApi();
+getAllJokes();
 
-const buttonProgramming = document.querySelector(".button1");
+function displayJokes(type) {
+  const jokesToDisplay = getJokes(type);
+  jokesContainer.innerHTML = "";
 
-function link1() {
-  console.log(link1);
+  for (let i = 0; i < jokesToDisplay.length; i++) {
+    const joke = jokesToDisplay[i];
+    jokesContainer.innerHTML += `<div class="card"><div class="card-type">${joke.type}</div>
+                               <div class="card-setup">${joke.setup}</div>
+                               <a href="joke.html?id=${joke.id}" class="card-punchline"><h4>Get punchline</h4></div></div>`;
+  }
 }
 
-buttonProgramming.oncklick = link1;
+function getJokes(type) {
+  if (type !== "all") return jokes.filter((joke) => joke.type === type);
+
+  return jokes;
+}

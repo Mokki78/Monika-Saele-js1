@@ -5,13 +5,13 @@ const id = params.get("id");
 console.log(id);
 
 const url = "https://api.noroff.dev/api/v1/jokes/" + id;
-
+let joke;
 console.log(url);
 
 async function fetchJoke() {
   try {
     const response = await fetch(url);
-    const joke = await response.json();
+    joke = await response.json();
 
     console.log(joke);
 
@@ -24,9 +24,15 @@ async function fetchJoke() {
 fetchJoke();
 
 function createHtml(joke) {
-  container.innerHTML = `<div><h1 class="card-type">${joke.type}</h1>
+  container.innerHTML = `<div class="card"><h1 class="card-type">${joke.type}</h1>
                             <div class="card-joke">${joke.setup}</div>
-                            <div class="card-setup">${joke.punchline}<div></div>`;
+                            <div id="punchline">
+                              <button class="punchline" onclick="showPunchline()">Show punchline</button>
+                            </div>
+                        </div>`;
 }
 
-createHtml();
+function showPunchline() {
+  const element = document.getElementById("punchline");
+  element.innerHTML = `<div class="card-punchline">${joke.punchline}</div>`;
+}
