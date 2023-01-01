@@ -1,4 +1,4 @@
-# resit-js
+# Monika-Saele-js1-resit
 resit of CA javascript
 
 Fetch API:
