@@ -1,5 +1,5 @@
 # Monika-Saele-js1
-resit of CA javascript
+ CA javascript
 
 <h2>Description</h2>
 <p>This is an assignment for the CA of javascript first year as a front-end developer student at Noroff school of Technology and digital media.
