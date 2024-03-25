@@ -1,8 +1,8 @@
-# Monika-Saele-js1-resit
+# Monika-Saele-js1
 resit of CA javascript
 
 <h2>Description</h2>
-<p>This is a resit assignment for the CA of javascript first year as a front-end developer student at Noroff school of Technology and digital media.
+<p>This is an assignment for the CA of javascript first year as a front-end developer student at Noroff school of Technology and digital media.
 
 The assignment is to make an API call to https://noroff-api-docs.netlify.app/basic-endpoints/jokes, and make two pages using endpoints from this API. The index page is supposed to make a call to all entries, that is all the jokes, since this API is a list of jokes, and give the visitor of the page two buttons to choose to filter the jokes in the types programming and general jokes. It should also be possible to follow a link for each joke to get the punchline on the joke.html page , which is the other page of this assignment.
 
